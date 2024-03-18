@@ -4,6 +4,7 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "../lib/SessionProvider"
 import { NavigationBar } from "@/components/NavigationBar";
+import { useSession } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -24,7 +25,6 @@ export default function RootLayout({
     <html lang="en">
       <SessionProvider>
           <body className={bricolageGrotesque.className}>
-            <NavigationBar />
             {children}
           </body>
       </SessionProvider>

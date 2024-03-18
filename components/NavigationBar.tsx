@@ -1,9 +1,10 @@
 "use client"
 
+import { signIn } from "next-auth/react"
 import { Button } from "./ui/button"
 import Link from "next/link"
 
-export function NavigationBar() {
+export function NavigationBar(props:any) {
     return (
         <>
         <header className="bg-transparent sticky top-0 z-10">
@@ -12,16 +13,26 @@ export function NavigationBar() {
                     <Link href='/' className="font-bold text-lg">Lou</Link>
                 </div>
                 <div className="flex gap-4 items-center">
-                    <Button asChild>
-                        <Link href='/auth'>
+                    {
+                        props.session
+                        ? 
+                        <>
+                        <Button asChild>
+                        <Link href='/me'>
+                            Dashboard
+                        </Link>
+                        </Button>
+                        </>
+                        : 
+                        <>
+                        <Button onClick={(() => {signIn('google')})}>
                             Sign in
-                        </Link>
-                    </Button>
-                    <Button variant="outline" asChild>
-                        <Link href='/auth'>
-                             Sign in
-                        </Link>
-                    </Button>
+                        </Button>
+                        <Button variant="outline" onClick={(() => {signIn('google')})}>
+                         Sign up
+                        </Button>
+                        </>
+                    }
                 </div>
             </nav>
         </header>
