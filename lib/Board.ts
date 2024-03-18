@@ -3,6 +3,19 @@ import prisma from "./database"
 import { getServerSession } from "next-auth"
 import { authConfig } from "./Auth"
 
+export async function GetBoard(id:string) {
+    const board = await prisma.board.findUnique({
+        where: {
+            id
+        },
+        include: {
+            jobs:true
+        }
+    });
+    if(!board) return { error: 'board not found'}
+    return { board: board }
+}
+
 export async function GetUserBoards() {
 }
 

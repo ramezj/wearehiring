@@ -7,13 +7,12 @@ export default function Home() {
   const session = useSession();
   return (
     <>
-    {session && 
-    <>
-    {JSON.stringify(session.data?.user)}
-    <CreateBoardButton />
-    </>
-    }
-    <h1 className="text-4xl ">Simplify hiring, amplify success - the future of recruitment is here.</h1>
+    <div className="text-center w-full">
+      <br /><br /><br /><br />
+        <h1 className="text-4xl ">Simplifying the hiring process.</h1>
+        <br />
+        <CreateBoardButton />
+    </div>
     </>
   );
 }

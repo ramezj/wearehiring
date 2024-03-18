@@ -40,11 +40,11 @@ export function CreateBoardButton() {
         <DialogHeader>
           <DialogTitle>Create Board</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when youre done.
+            Create a job board, create open job positions and start hiring.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
+          <div className="items-center gap-4">
             <form id="form" onSubmit={create}>
             <Label htmlFor="name" className="text-right">
               Name
@@ -54,7 +54,7 @@ export function CreateBoardButton() {
                 id="name"
                 value={name}
                 onChange={((e) => { setName(e.target.value)})}
-                className="col-span-3 !w-full"
+                className="w-full"
             />
             </form>
           </div>
@@ -62,12 +62,12 @@ export function CreateBoardButton() {
         <DialogFooter>
           { loading === false && 
           <>
-          <Button form="form" type="submit">Deploy</Button>
+          <Button form="form" type="submit" className="w-full">Deploy</Button>
           </>
           } 
           { loading === true && 
           <>
-          <Button form="form" type="submit" disabled><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Deploy</Button>
+          <Button form="form" type="submit" disabled className="w-full"><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Deploy</Button>
           </>
           } 
         </DialogFooter>

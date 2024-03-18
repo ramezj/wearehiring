@@ -1,8 +1,38 @@
 "use client"
+import { GetBoard } from "@/lib/Board"
+import { Board } from "@prisma/client"
+import { useEffect, useState } from "react"
 export default function Page({ params }: { params: { slug: string }}) {
+    const [ board, setBoard ] = useState<Board>(); 
+    const [ loading, setLoading ] = useState<boolean>(true);
+    useEffect(() => {
+        const fetchBoard = async () => {
+            const res = await GetBoard(params.slug);
+            setLoading(false);
+            if(res.error) {
+                // handle error here.
+            } else {
+                setBoard(res.board);
+            }
+        }
+        fetchBoard();
+    },[])
+    
     return (
-        <>
-        Parameters : {params.slug}
-        </>
+        <div className="text-center w-full">
+            <br /><br />
+            <h1 className="text-5xl font-medium">We are hiring.</h1>
+            { loading === true &&
+            <>
+            Loading jobs...
+            </>
+            }
+            {
+            loading === false && 
+            <>
+            {JSON.stringify(board)}
+            </>
+            }
+        </div>
     )
 }
