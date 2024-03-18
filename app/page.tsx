@@ -11,7 +11,7 @@ export default function Home() {
     {JSON.stringify(session.data?.user)}
     </>
     }
-    <h1 className="text-8xl ">loujobs</h1>
+    <h1 className="text-4xl ">Simplify hiring, amplify success - the future of recruitment is here.</h1>
     </>
   );
 }
