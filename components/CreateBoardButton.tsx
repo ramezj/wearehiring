@@ -67,7 +67,7 @@ export function CreateBoardButton() {
           } 
           { loading === true && 
           <>
-          <Button form="form" type="submit" disabled><Loader2 className="mr-2 h-4 w-4" /> Deploy</Button>
+          <Button form="form" type="submit" disabled><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Deploy</Button>
           </>
           } 
         </DialogFooter>
