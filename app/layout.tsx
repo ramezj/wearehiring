@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "../lib/SessionProvider"
 
 const inter = Inter({ subsets: ["latin"] });
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={bricolageGrotesque.className}>{children}</body>
+      <SessionProvider>
+        <body className={bricolageGrotesque.className}>{children}</body>
+      </SessionProvider>
     </html>
   );
 }
