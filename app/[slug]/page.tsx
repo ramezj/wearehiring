@@ -3,10 +3,10 @@ import { GetBoard } from "@/lib/Board"
 import { Board } from "@prisma/client"
 import { useEffect, useState } from "react"
 import { Layout } from "@/components/Layouts/MainLayout"
-import { getSession, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 export default function Page({ params }: { params: { slug: string }}) {
-    const session = getSession();
+    const { data: session } = useSession();
     const [ board, setBoard ] = useState<Board>(); 
     const [ loading, setLoading ] = useState<boolean>(true);
     useEffect(() => {

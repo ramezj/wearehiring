@@ -5,7 +5,7 @@ import { CreateBoardButton } from "@/components/CreateBoardButton";
 import { Layout } from "@/components/Layouts/MainLayout";
 
 export default function Home() {
-  const session = useSession();
+  const { data: session } = useSession();
   return (
     <>
     <Layout session={session}>
