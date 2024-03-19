@@ -4,6 +4,7 @@ import { Board } from "@prisma/client"
 import { useEffect, useState } from "react"
 import { Layout } from "@/components/Layouts/MainLayout"
 import { useSession } from "next-auth/react"
+import { Job } from "@/components/Job"
 
 export default function Page({ params }: { params: { slug: string }}) {
     const { data: session } = useSession();
@@ -38,6 +39,9 @@ export default function Page({ params }: { params: { slug: string }}) {
             {JSON.stringify(board)}
             </>
             }
+            <div className="flex justify-center">
+                <Job />
+            </div>
         </div>
         </Layout>
     )
