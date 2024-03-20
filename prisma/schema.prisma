@@ -56,7 +56,8 @@ model Job {
   id String @id @default(cuid())
   title String
   location String
-  compensation Int?
+  salary Int
+  workplace String
   boardId String
   board Board @relation(fields: [boardId], references: [id])
 }
