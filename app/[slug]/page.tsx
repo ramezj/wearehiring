@@ -43,7 +43,7 @@ export default function Page({ params }: { params: { slug: string }}) {
         </div>
         <center>
             <div className='2xl:w-3/6 lg:w-3/5 w-full h-full'>
-                <div className='w-5/6 flex flex-col justify-between'>
+                <div className='w-9/12 flex flex-col justify-between'>
                     <Job/>  
                 </div>
             </div>

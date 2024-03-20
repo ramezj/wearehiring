@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { CreateBoardButton } from "@/components/CreateBoardButton";
 import { Layout } from "@/components/Layouts/MainLayout";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -10,8 +11,10 @@ export default function Home() {
     <>
     <Layout session={session}>
     <div className="text-center w-full">
-      <br /><br /><br /><br />
-        <h1 className="text-4xl font-medium ">Simplifying the hiring process.</h1>
+      <br /><br />
+      <Badge className="px-5 py-1">wearehiring is launching on producthunt</Badge>
+      <br /><br />
+        <h1 className="text-4xl font-bold ">Simplifying the hiring process.</h1>
         <br />
         <CreateBoardButton />
     </div>
