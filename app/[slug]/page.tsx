@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { Layout } from "@/components/Layouts/MainLayout"
 import { useSession } from "next-auth/react"
 import { Job } from "@/components/Job"
+import { Button } from "@/components/ui/button"
 
 export default function Page({ params }: { params: { slug: string }}) {
     const { data: session } = useSession();
@@ -36,13 +37,17 @@ export default function Page({ params }: { params: { slug: string }}) {
             {
             loading === false && 
             <>
-            {JSON.stringify(board)}
             </>
             }
-            <div className="flex justify-center">
-                <Job />
-            </div>
+            <br />
         </div>
+        <center>
+            <div className='2xl:w-3/6 lg:w-3/5 w-full h-full'>
+                <div className='w-5/6 flex flex-col justify-between'>
+                    <Job/>  
+                </div>
+            </div>
+        </center>
         </Layout>
     )
 }
