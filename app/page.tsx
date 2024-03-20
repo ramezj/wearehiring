@@ -12,9 +12,9 @@ export default function Home() {
     <Layout session={session}>
     <div className="text-center w-full">
       <br /><br />
-      <Badge className="px-5 py-1 2xl:px-12 2xl:py-2 text-md">wearehiring is currently in pre-alpha.</Badge>
+      <Badge className="px-5 py-1 2xl:px-12 2xl:py-2 text-sm">wearehiring is currently in pre-alpha.</Badge>
       <br /><br />
-        <h1 className="text-6xl font-bold ">Simplifying the hiring process.</h1>
+        <h1 className="text-5xl font-bold ">Simplifying the hiring process.</h1>
         <br />
         <CreateBoardButton />
     </div>
