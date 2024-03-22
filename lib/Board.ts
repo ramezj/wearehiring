@@ -17,6 +17,18 @@ export async function GetBoard(id:string) {
 }
 
 export async function GetUserBoards() {
+    const session = await getServerSession(authConfig);
+    if(!session) return { error: 'Unauthenticated' }
+    const board = await prisma.board.findFirst({
+        where: {
+            userId: session.user.id
+        },
+        include: {
+            jobs: true
+        }
+    })
+    if(!board) return { error: 'no job boards found'}
+    return { board: board }
 }
 
 export async function CreateBoard(name: string) {
