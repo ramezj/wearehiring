@@ -1,19 +1,19 @@
+"use server"
+
 import prisma from "./database";
 import { getServerSession } from "next-auth"
 import { authConfig } from "./Auth"
 
-export async function CreateJob(boardId: string, title: string, location: string, salary: number, workplace: string) {
-    if(!boardId) return { error: "board id missing"};
+export async function CreateJob(title: string, location: string, salary: number) {
     const session = await getServerSession(authConfig);
     if(!session) return { error: 'Unauthenticated'}
     try {
         const createjob = await prisma.job.create({
             data: {
-                boardId: boardId,
+                userId: session.user.id,
                 title,
                 location,
-                salary,
-                workplace
+                salary
             }
         })
         if(!createjob) return { error: 'something went wrong'}
@@ -21,5 +21,24 @@ export async function CreateJob(boardId: string, title: string, location: string
     } catch (error) {
         console.error(error);
         return { error: 'something is up, contact the developer.'}
+    }
+}
+
+export async function GetUserJobs() {
+    const session = await getServerSession(authConfig);
+    if(!session) return { error: 'Unauthenticated'}
+    try {
+        const userjobs = await prisma.user.findFirst({
+            where: {
+                id: session.user.id
+            },
+            include: {
+                jobs: true
+            }
+        })
+        if(!userjobs) return { error: 'something went wrong'}
+        return { jobs: userjobs }
+    } catch (error) {
+        console.error(error);
     }
 }

@@ -2,8 +2,10 @@
 import { Layout } from "@/components/Layouts/MainLayout"
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { GetUserBoards } from "@/lib/Board";
+// import { GetUserBoards } from "@/lib/Board";
+import { GetUserJobs } from "@/lib/Job";
 import { useEffect, useState } from "react";
+import { CreateJobModal } from "@/components/CreateJobModal";
 
 export default function Page() {
     const router = useRouter();
@@ -14,19 +16,21 @@ export default function Page() {
     }})
     useEffect(() => {
         const FetchUserData = async () => {
-            const boards = await GetUserBoards();
+            const jobs = await GetUserJobs();
             setLoading(false);
-            if(boards.error) console.error(boards.error)
+            if(jobs?.error) console.error(jobs.error);
             else {
-                setJobs(boards.board?.jobs as any);
+               setJobs(jobs?.jobs?.jobs as any)
+               console.log(jobs?.jobs);
             }
         }
         FetchUserData();
     }, [])
     return (
         <Layout session={session}>
-            <div className="flex justify-center">
+            <center>
                 <h1 className="text-3xl font-bold mt-8">My Jobs:</h1>
+                <br />
                 {
                     loading 
                     ? 
@@ -38,7 +42,8 @@ export default function Page() {
                     {JSON.stringify(jobs)}
                     </>
                 }
-            </div>
+                <CreateJobModal />
+            </center>
         </Layout>
     )
 }

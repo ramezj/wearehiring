@@ -6,6 +6,7 @@ import { Layout } from "@/components/Layouts/MainLayout";
 import { Badge } from "@/components/ui/badge";
 import { HologramCard } from "@/components/HologramCard";
 
+
 export default function Home() {
   const { data: session } = useSession();
   return (

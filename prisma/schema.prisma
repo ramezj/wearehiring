@@ -34,33 +34,34 @@ model Session {
 }
 model User {
   id            String    @id @default(cuid())
-  firstTimeUser Boolean @default(true)
   name          String?
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  boardId       String @default(cuid())
+  boardName     String?
+  jobs Job[]
   accounts      Account[]
   sessions      Session[]
-  boards Board[]
 }
 
 
-model Board {
-  id String @id @default(cuid())
-  name String
-  jobs Job[]
-  userId String
-  user User @relation(fields: [userId], references: [id])
-}
+// model Board {
+//   id String @id @default(cuid())
+//   name String
+//   jobs Job[]
+//   userId String
+//   user User @relation(fields: [userId], references: [id])
+// }
 
 model Job {
   id String @id @default(cuid())
   title String
-  location String
-  salary Int
-  workplace String
-  boardId String
-  board Board @relation(fields: [boardId], references: [id])
+  location String?
+  salary Int?
+  workplace String?
+  userId String
+  user User @relation(fields: [userId], references: [id])
 }
 
 datasource db {
