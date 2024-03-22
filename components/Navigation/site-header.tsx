@@ -14,35 +14,12 @@ export function SiteHeader() {
         <MainNav />
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <nav className="flex items-center">
-            <Link
-              href='/github'
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={cn(buttonVariants({variant: "ghost",}),"w-9 px-0")}>
-                <Icons.gitHub className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
-            <Link
-              href='/twitter'
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "w-9 px-0"
-                )}
-              >
-                <Icons.twitter className="h-3 w-3 fill-current" />
-                <span className="sr-only">Twitter</span>
-              </div>
-            </Link>
-            <Button>Toggle</Button>
+            <div className="w-full flex-1 md:w-auto md:flex-none">
+
+            </div>
+          <nav className="flex items-center gap-2">
+           <Button>Sign Up</Button>
+           <Button>Sign In</Button>
           </nav>
         </div>
       </div>

@@ -11,7 +11,6 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
-
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
