@@ -36,6 +36,7 @@ export async function GetUserJobs() {
                 jobs: true
             }
         })
+        console.log(userjobs);
         if(!userjobs) return { error: 'something went wrong'}
         return { jobs: userjobs }
     } catch (error) {
