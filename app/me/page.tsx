@@ -10,7 +10,9 @@ export default function Page() {
     }})
     return (
         <Layout session={session}>
-            {JSON.stringify(session)}
+            <div className="flex justify-center">
+                <h1 className="text-2xl font-medium mt-8">Hello, {session?.user.name}</h1>
+            </div>
         </Layout>
     )
 }
