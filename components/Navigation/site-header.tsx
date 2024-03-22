@@ -23,7 +23,7 @@ export function SiteHeader(props:any) {
               ?
               <>
                 <Button asChild>
-                  <Link href='/me'>
+                  <Link href='/dashboard'>
                   Dashboard
                   </Link>
                   </Button>
