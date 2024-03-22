@@ -6,7 +6,7 @@ export function Layout(props:any) {
     return (
         <div>
             {/* <NavigationBar session={props.session}/> */}
-            <SiteHeader />
+            <SiteHeader session={props.session}/>
             {props.children}
         </div>
     )

@@ -5,12 +5,12 @@ import { MainNav } from "./main-nav"
 import { MobileNav } from "./mobile-nav"
 import { Button } from "../ui/button"
 import { buttonVariants } from "../ui/button"
-// import { ModeToggle } from "@/components/mode-toggle"
+import { signIn } from "next-auth/react"
 
-export function SiteHeader() {
+export function SiteHeader(props:any) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+      <div className="container flex h-14 max-w-screen-2xl items-center p-3">
         <MainNav />
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -18,8 +18,22 @@ export function SiteHeader() {
 
             </div>
           <nav className="flex items-center gap-2">
-           <Button>Sign Up</Button>
-           <Button>Sign In</Button>
+            {
+              props.session
+              ?
+              <>
+                <Button asChild>
+                  <Link href='/me'>
+                  Dashboard
+                  </Link>
+                  </Button>
+              </>
+              : 
+              <>
+              <Button onClick={(() => {signIn("google")})}>Sign In</Button>
+              <Button variant="outline" onClick={(() => {signIn("google")})}>Sign Up</Button>
+              </>
+            }
           </nav>
         </div>
       </div>
