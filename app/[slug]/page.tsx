@@ -1,24 +1,23 @@
 "use client"
-import { GetBoard } from "@/lib/Board"
-import { Board } from "@prisma/client"
 import { useEffect, useState } from "react"
 import { Layout } from "@/components/Layouts/MainLayout"
 import { useSession } from "next-auth/react"
 import { Job } from "@/components/Job"
 import { Button } from "@/components/ui/button"
+import { GetJobs } from "@/lib/Job"
 
 export default function Page({ params }: { params: { slug: string }}) {
     const { data: session } = useSession();
-    const [ board, setBoard ] = useState<Board>(); 
+    const [ jobs, setJobs ] = useState<any>(); 
     const [ loading, setLoading ] = useState<boolean>(true);
     useEffect(() => {
         const fetchBoard = async () => {
-            const res = await GetBoard(params.slug);
+            const res = await GetJobs(params.slug);
             setLoading(false);
             if(res.error) {
                 // handle error here.
             } else {
-                setBoard(res.board);
+                setJobs(res.jobs);
             }
         }
         fetchBoard();

@@ -42,3 +42,17 @@ export async function GetUserJobs() {
         console.error(error);
     }
 }
+
+export async function GetJobs(id: String) {
+    if(!id) return { error: "no id was given" }
+    const jobs = await prisma.user.findFirst({
+        where: {
+            boardId: id as string
+        },
+        include: {
+            jobs:true
+        }
+    })
+    if(!jobs) return { error: "no board found"}
+    return { jobs: jobs.jobs }
+}
