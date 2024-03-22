@@ -10,7 +10,7 @@ export async function CreateJob(title: string, location: string, salary: number)
     try {
         const createjob = await prisma.job.create({
             data: {
-                userId: session.user.id,
+                userId: session?.user.id,
                 title,
                 location,
                 salary
@@ -37,7 +37,10 @@ export async function GetUserJobs() {
             }
         })
         console.log(userjobs);
-        if(!userjobs) return { error: 'something went wrong'}
+        if(!userjobs) { 
+            console.error(userjobs);
+            return { error: 'something went wrong'} 
+        }
         return { jobs: userjobs }
     } catch (error) {
         console.error(error);
