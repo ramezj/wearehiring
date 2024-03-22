@@ -5,7 +5,9 @@ import { MainNav } from "./main-nav"
 import { MobileNav } from "./mobile-nav"
 import { Button } from "../ui/button"
 import { buttonVariants } from "../ui/button"
-import { signIn } from "next-auth/react"
+import { signIn, signOut } from "next-auth/react"
+import { CircleUser } from "lucide-react"
+import {  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function SiteHeader(props:any) {
   return (
@@ -22,11 +24,39 @@ export function SiteHeader(props:any) {
               props.session
               ?
               <>
-                <Button asChild>
+            <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary" size="icon" className="rounded-full bg-gray-200 hover:bg-gray-200 ">
+                <CircleUser className="h-5 w-5" />
+                <span className="sr-only">Toggle user menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <Link href='/dashboard' className="cursor-pointer">
+              <DropdownMenuItem className="cursor-pointer	">
+                  Dashboard
+                </DropdownMenuItem>
+              </Link>
+              <Link href='/settings'>
+                <DropdownMenuItem className="cursor-pointer">
+                  Settings
+                </DropdownMenuItem>
+              </Link>
+              <DropdownMenuSeparator />
+              <button className="w-full cursor-pointer" onClick={(() => {signOut()})}>
+              <DropdownMenuItem className="cursor-pointer">
+                Logout
+                </DropdownMenuItem>
+              </button>
+            </DropdownMenuContent>
+          </DropdownMenu>
+                {/* <Button asChild>
                   <Link href='/dashboard'>
                   Dashboard
                   </Link>
-                  </Button>
+                  </Button> */}
               </>
               : 
               <>
