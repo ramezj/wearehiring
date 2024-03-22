@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { CreateBoardButton } from "@/components/CreateBoardButton";
 import { Layout } from "@/components/Layouts/MainLayout";
 import { Badge } from "@/components/ui/badge";
+import { HologramCard } from "@/components/HologramCard";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -17,6 +18,8 @@ export default function Home() {
         <h1 className="text-5xl font-bold ">Simplifying the hiring process.</h1>
         <br />
         <CreateBoardButton />
+        {/* <br /><br />
+        <HologramCard /> */}
     </div>
     </Layout>
     </>
