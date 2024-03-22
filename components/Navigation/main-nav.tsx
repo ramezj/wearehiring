@@ -19,56 +19,18 @@ export function MainNav() {
         </span>
       </Link>
       <nav className="flex items-center gap-6 text-sm">
-        <Link
-          href="/docs"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname === "/docs" ? "text-foreground" : "text-foreground/60"
-          )}
-        >
-          Docs
+        <Link href="/demo" className={cn("font-bold transition-colors hover:text-foreground/80", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+          Demo
         </Link>
-        <Link
-          href="/docs/components"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/docs/components")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Components
+        <Link href="/features" className={cn("font-bold transition-colors hover:text-foreground/80", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+          Features
         </Link>
-        <Link
-          href="/themes"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/themes")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Themes
+        <Link href="/pricing" className={cn("font-bold transition-colors hover:text-foreground/80", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+          Pricing
         </Link>
-        <Link
-          href="/examples"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/examples")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Examples
-        </Link>
-        <Link
-          href='/'
-          className={cn(
-            "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
-          )}
-        >
-          GitHub
-        </Link>
+        {/* <Link href="/demo" className={cn("transition-colors hover:text-foreground/80", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+          Blog
+        </Link> */}
       </nav>
     </div>
   )
