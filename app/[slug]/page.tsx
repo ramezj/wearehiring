@@ -55,7 +55,7 @@ export default function Page({ params }: { params: { slug: string }}) {
                         jobs.map((job: Job) => {
                             return (
                                 <>
-                                <Job title={job.title}/> 
+                                <Job title={job.title} id={job.id}/> 
                                 <br />
                                 </>
                             )

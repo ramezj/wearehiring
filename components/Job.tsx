@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
 import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 export function Job(props:any) {
     return (
@@ -17,9 +18,11 @@ export function Job(props:any) {
       </div>
       </div>
       <div className="m-8 ml-auto">
-      <Button className="gap-1">
+      <Button asChild className="gap-1">
+      <Link href={`/job/${props.id}`}>
       View
-      <ArrowUpRight className="h-4 w-4"/>
+      </Link>
+      {/* <ArrowUpRight className="h-4 w-4"/> */}
       </Button>
       </div>
       </div>

@@ -60,3 +60,14 @@ export async function GetJobs(id: String) {
     if(!jobs) return { error: "no board found"}
     return { jobs: jobs.jobs }
 }
+
+export async function GetJob(id: String) {
+    if(!id) return { error: "no id was given" }
+    const job = await prisma.job.findFirst({
+        where: {
+            id: id as string
+        }
+    })
+    if(!job) return { error: "No Job Found"}
+    return { job: job }
+}

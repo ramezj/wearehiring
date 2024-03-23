@@ -5,5 +5,4 @@ type Job = {
     salary?: Number,
     workplace? : String,
     userId: String,
-    user: User
 }
