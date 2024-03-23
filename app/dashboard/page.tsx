@@ -48,6 +48,7 @@ export default function Dashboard() {
   const [ loading, setLoading ] = useState<boolean>(true);
   const [ boardId, setBoardId ] = useState<string>("");
   const [ boardViews, setBoardViews ] = useState<number>(0);
+  const [ applicants, setApplicants ] = useState([]);
   const [ jobs, setJobs ] = useState<any>([]);
   useEffect(() => {
     const fetchUserData = async () => {
@@ -77,7 +78,7 @@ export default function Dashboard() {
       <h1 className="font-bold text-3xl">Hello {session?.user.name}, Welcome back.</h1>
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
       <CreateJobModal />
-      <Button asChild><Link target="_blank" href={`/${boardId}`}>Preview Board <SquareArrowOutUpRight className="w-4 h-4 ml-2"/></Link></Button>
+      <Button asChild><Link target="_blank" href={`/${boardId}`}>Preview Board<ArrowUpRight className="ml-2 h-4 w-4" /></Link></Button>
       <Button>Manage Board</Button>
         <Button asChild>
         <Link href='/settings'>
@@ -111,7 +112,13 @@ export default function Dashboard() {
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">2350</div>
+              <div className="text-2xl font-bold">
+                {
+                  loading
+                  ? <>0</>
+                  : <>{applicants.length}</>
+                }
+              </div>
             </CardContent>
           </Card>
           <Card className="border border-black/20">
