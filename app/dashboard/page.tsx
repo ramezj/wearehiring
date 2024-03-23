@@ -47,7 +47,7 @@ export default function Dashboard() {
   const [ loading, setLoading ] = useState<boolean>(true);
   const [ boardId, setBoardId ] = useState<string>("");
   const [ boardViews, setBoardViews ] = useState<number>(0);
-  const [ jobs, setJobs ] = useState<any>();
+  const [ jobs, setJobs ] = useState<any>([]);
   useEffect(() => {
     const fetchUserData = async () => {
       const user = await GetUserJobs();
