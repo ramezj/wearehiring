@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import {
   Activity,
@@ -40,8 +41,30 @@ import { useSession } from "next-auth/react"
 import { Job } from "@/components/Job"
 import { Button } from "@/components/ui/button"
 import { CreateJobModal } from "@/components/CreateJobModal"
+import { GetUserJobs } from "@/lib/Job"
 
 export default function Dashboard() {
+  const [ loading, setLoading ] = useState<boolean>(true);
+  const [ boardId, setBoardId ] = useState<string>("");
+  const [ boardViews, setBoardViews ] = useState<number>(0);
+  const [ jobs, setJobs ] = useState<any>();
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const user = await GetUserJobs();
+      if(user?.error) {
+        setLoading(false);
+        console.error(user?.error);
+      }
+      if(user?.jobs){
+        setBoardId(user?.jobs.boardId);
+        setJobs(user?.jobs.jobs);
+        setBoardViews(user?.jobs.boardViews);
+        setLoading(false);
+        console.log(user.jobs)
+      }
+    }
+    fetchUserData();
+  },[])
   const router = useRouter();
   const { data: session } = useSession({required: true, onUnauthenticated() {
     router.push('/')
@@ -66,7 +89,13 @@ export default function Dashboard() {
               <Activity className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12,761</div>
+              <div className="text-2xl font-bold">
+                {
+                  loading 
+                  ? <>0</>
+                  : <>{boardViews}</>
+                }
+              </div>
             </CardContent>
           </Card>
           <Card className="border border-black/20">
@@ -88,7 +117,13 @@ export default function Dashboard() {
               <Briefcase className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12</div>
+              <div className="text-2xl font-bold">
+                {
+                  loading 
+                  ? <>0</>
+                  : <>{jobs.length}</>
+                }
+              </div>
             </CardContent>
           </Card>
           <Card className="border border-black/20">
@@ -184,26 +219,34 @@ export default function Dashboard() {
               <CardTitle>Open Positions</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-8">
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-md font-medium leading-none">
-                    Software Engineer
-                  </p>
-                </div>
-                <div className="ml-auto font-medium">
-                  <Button>Edit Position</Button>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-md font-medium leading-none">
-                   Front End Developer
-                  </p>
-                </div>
-                <div className="ml-auto font-medium">
-                  <Button>Edit Position</Button>
-                </div>
-              </div>
+              {
+                loading 
+                ? 
+                <>
+                loading..
+                </>
+                : 
+                <>
+                {
+                  jobs.map((job:any) => {
+                    return (
+                      <>
+                      <div className="flex items-center gap-4">
+                      <div className="grid gap-1">
+                          <p className="text-md font-medium leading-none">
+                          {job.title}
+                          </p>
+                      </div>
+                      <div className="ml-auto font-medium">
+                        <Button>Edit Position</Button>
+                      </div>
+                    </div>
+                    </>
+                    )
+                  })
+                }      
+                </>
+              }
             </CardContent>
           </Card>
         </div>
