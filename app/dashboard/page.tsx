@@ -39,6 +39,7 @@ import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { Job } from "@/components/Job"
 import { Button } from "@/components/ui/button"
+import { CreateJobModal } from "@/components/CreateJobModal"
 
 export default function Dashboard() {
   const router = useRouter();
@@ -49,6 +50,13 @@ export default function Dashboard() {
     <Layout session={session}>
     <div className="flex w-full flex-col">
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+      <h1 className="font-bold text-3xl">Hello {session?.user.name}, Welcome back.</h1>
+      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+      <CreateJobModal />
+      <Button>Preview Board</Button>
+      <Button>Manage Board</Button>
+      <Button>Account Settings</Button>
+        </div>
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
           <Card className="border border-black/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -99,7 +107,7 @@ export default function Dashboard() {
               <div className="grid gap-2">
                 <CardTitle>Applicants</CardTitle>
                 <CardDescription>
-                  Recent applicants that have applied to your positions.
+                  Recent applicants that have applied to your positions
                 </CardDescription>
               </div>
               <Button asChild size="sm" className="ml-auto gap-1">
