@@ -76,7 +76,7 @@ export default function Dashboard() {
       <h1 className="font-bold text-3xl">Hello {session?.user.name}, Welcome back.</h1>
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
       <CreateJobModal />
-      <Button>Preview Board</Button>
+      <Button asChild><Link href={`/${boardId}`}>Preview Board</Link></Button>
       <Button>Manage Board</Button>
       <Button>Account Settings</Button>
         </div>
