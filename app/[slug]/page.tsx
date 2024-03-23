@@ -6,6 +6,7 @@ import { Job } from "@/components/Job"
 import { Button } from "@/components/ui/button"
 import { GetJobs } from "@/lib/Job"
 
+
 export default function Page({ params }: { params: { slug: string }}) {
     const { data: session } = useSession();
     const [ jobs, setJobs ] = useState<any>(); 

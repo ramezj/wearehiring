@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
+import { ArrowUpRight } from "lucide-react"
 
 export function Job(props:any) {
     return (
@@ -16,8 +17,9 @@ export function Job(props:any) {
       </div>
       </div>
       <div className="m-8 ml-auto">
-      <Button>
+      <Button className="gap-1">
       View
+      <ArrowUpRight className="h-4 w-4"/>
       </Button>
       </div>
       </div>

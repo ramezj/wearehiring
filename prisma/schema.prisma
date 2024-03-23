@@ -46,15 +46,6 @@ model User {
   sessions      Session[]
 }
 
-
-// model Board {
-//   id String @id @default(cuid())
-//   name String
-//   jobs Job[]
-//   userId String
-//   user User @relation(fields: [userId], references: [id])
-// }
-
 model Job {
   id String @id @default(cuid())
   title String
@@ -63,6 +54,20 @@ model Job {
   workplace String?
   userId String
   user User @relation(fields: [userId], references: [id])
+  applications Application[]
+}
+
+model Application {
+  id          String   @id @default(cuid())
+  name        String   // Applicant's name
+  email       String   // Applicant's email
+  resume      String?  // URL to the resume file or similar
+  coverLetter String?
+  status      String   @default("submitted") // e.g., submitted, reviewed, rejected, accepted
+  jobId       String
+  job         Job      @relation(fields: [jobId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 datasource db {
