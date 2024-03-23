@@ -50,7 +50,7 @@ export default function Dashboard() {
     <div className="flex w-full flex-col">
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          <Card>
+          <Card className="border border-black/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Total Board Views
@@ -61,7 +61,7 @@ export default function Dashboard() {
               <div className="text-2xl font-bold">12,761</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border border-black/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Total Applicants
@@ -72,7 +72,7 @@ export default function Dashboard() {
               <div className="text-2xl font-bold">2350</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border border-black/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Open Job Posts
@@ -83,7 +83,7 @@ export default function Dashboard() {
               <div className="text-2xl font-bold">12</div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border border-black/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Active Applicants</CardTitle>
               <Activity className="h-4 w-4 text-muted-foreground" />
@@ -94,7 +94,7 @@ export default function Dashboard() {
           </Card>
         </div>
         <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-          <Card className="xl:col-span-2">
+          <Card className="xl:col-span-2 border border-black/20">
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Applicants</CardTitle>
@@ -171,7 +171,7 @@ export default function Dashboard() {
               </Table>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border border-black/20">
             <CardHeader>
               <CardTitle>Open Positions</CardTitle>
             </CardHeader>
