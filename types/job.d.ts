@@ -5,4 +5,5 @@ type Job = {
     salary?: Number,
     workplace? : String,
     userId: String,
+    applications?: String[]
 }

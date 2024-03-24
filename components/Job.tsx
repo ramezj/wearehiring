@@ -4,6 +4,7 @@ import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
 import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
+import { MapPin, Navigation } from "lucide-react"
 
 export function Job(props:any) {
     return (
@@ -13,7 +14,7 @@ export function Job(props:any) {
        {props.title}     
       </p>
       <div className="mt-3 -mb-2 flex gap-1">
-      <Badge className="rounded-sm">Full Stack</Badge>
+      <Badge className="rounded-sm"><Navigation className="w-3 h-3 mr-1" /> Cairo, Egypt</Badge>
       <Badge className="rounded-sm">Remote</Badge>
       </div>
       </div>

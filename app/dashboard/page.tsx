@@ -144,7 +144,13 @@ export default function Dashboard() {
               <Activity className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent> 
-              <div className="text-2xl font-bold">30</div>
+              <div className="text-2xl font-bold">
+                {
+                  loading 
+                  ? <>0</>
+                  : <>{applicants.length}</>
+                }
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -182,26 +188,6 @@ export default function Dashboard() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  <TableRow>
-                    <TableCell>
-                      <div className="font-medium">Liam Johnson</div>
-                      <div className="hidden text-sm text-muted-foreground md:inline">
-                        liam@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell className="hidden xl:table-column">
-                      Sale
-                    </TableCell>
-                    <TableCell className="hidden xl:table-column">
-                      <Badge className="text-xs" variant="outline">
-                        Approved
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell lg:hidden xl:table-column">
-                      2023-06-23
-                    </TableCell>
-                    <TableCell className="text-right">Front End Developer</TableCell>
-                  </TableRow>
                   <TableRow>
                     <TableCell>
                       <div className="font-medium">Olivia Smith</div>
