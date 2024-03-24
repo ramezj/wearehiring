@@ -14,7 +14,7 @@ export function Job(props:any) {
        {props.title}     
       </p>
       <div className="mt-3 -mb-2 flex gap-1">
-      <Badge className="rounded-sm"><Navigation className="w-3 h-3 mr-1" /> Cairo, Egypt</Badge>
+      <Badge className="rounded-sm"><Navigation className="w-3 h-3 mr-1" />{props.location}</Badge>
       <Badge className="rounded-sm">Remote</Badge>
       </div>
       </div>
