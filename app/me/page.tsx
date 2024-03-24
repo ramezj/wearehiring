@@ -37,12 +37,12 @@ export default function Page() {
             <center>
                 <div className="w-full">
                     <br />
-                <header className="flex h-[55px] items-center gap-1 bg-background px-5">
-          {/* <h1 className="text-xl font-semibold">Dashboard</h1> */}
-            <CreateJobModal/>
-        </header>
+            <header className="flex h-[55px] items-center gap-1 bg-background md:px-16 px-5">
+                <h1 className="text-2xl font-semibold">My Jobs</h1>
+                <CreateJobModal/>
+            </header>
                 </div>
-                <h1 className="font-bold text-3xl">My Jobs</h1>
+                {/* <h1 className="font-bold text-3xl">My Jobs</h1> */}
                 <br />
                 {
                     loading 
