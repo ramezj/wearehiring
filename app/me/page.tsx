@@ -13,7 +13,7 @@ import { Job } from "@/components/Job";
 export default function Page() {
     const router = useRouter();
     const [ loading, setLoading ] = useState<boolean>(true);
-    const [ jobs, setJobs ] = useState();
+    const [ jobs, setJobs ] = useState([]);
     const [ organization, setOrganization] = useState();
     const { data: session } = useSession({required: true, onUnauthenticated() {
         router.push('/')
@@ -26,6 +26,7 @@ export default function Page() {
                console.error(organization.error)
             } else {
                 setOrganization(organization.organization as any)
+                setJobs(organization.organization?.jobs as any)
             }
             setLoading(false);
         }
@@ -38,7 +39,7 @@ export default function Page() {
                     <br />
                 <header className="flex h-[55px] items-center gap-1 bg-background px-5">
           <h1 className="text-xl font-semibold">Dashboard</h1>
-            <CreateJobModal />
+            <CreateJobModal/>
         </header>
                 </div>
                 <br />
@@ -54,12 +55,20 @@ export default function Page() {
                     <>
                     <div className='2xl:w-3/6 lg:w-3/5 w-full h-full'>
                     <div className='lg:w-9/12 w-[95%] flex flex-col justify-between'>
-                        <Job title={"Full Stack Engineer"} location={"Cairo, Egypt"}/>
+                    {
+                        jobs.map((job: Job) => {
+                            return (
+                                <>
+                                <Job title={job.title} id={job.id} location={job.location}/> 
+                                <br />
+                                </>
+                            )
+                        })
+                        }
                     </div>
                     </div>
                     </>
                 }
-                {/* <CreateJobModal /> */}
             </center>
         </Layout>
     )

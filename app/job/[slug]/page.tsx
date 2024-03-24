@@ -14,7 +14,7 @@ export default function Page({ params }: { params: { slug: string }}) {
             }
             if(res.job) {
                 console.log(job);
-                setJob(res.job as Job);
+                setJob(res.job as any)
             }
             setLoading(false);
         }

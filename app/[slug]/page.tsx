@@ -5,21 +5,23 @@ import { useSession } from "next-auth/react"
 import { Job } from "@/components/Job"
 import { Button } from "@/components/ui/button"
 import { GetJobs } from "@/lib/Job"
+import { useRouter } from "next/navigation"
 
 
 export default function Page({ params }: { params: { slug: string }}) {
+    const router = useRouter();
     const { data: session } = useSession();
     const [ jobs, setJobs ] = useState<any>(); 
     const [ loading, setLoading ] = useState<boolean>(true);
     useEffect(() => {
         const fetchBoard = async () => {
             const res = await GetJobs(params.slug);
-            setLoading(false);
             if(res.error) {
-                // handle error here.
+               router.push('/404');
             } else {
                 setJobs(res.jobs);
             }
+            setLoading(false);
         }
         fetchBoard();
     },[])

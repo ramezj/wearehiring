@@ -3,8 +3,8 @@ import prisma from "./database"
 import { getServerSession } from "next-auth"
 import { authConfig } from "./Auth"
 
-export async function  GetOrganization(id:string) {
-    const board = await prisma.organization.findUnique({
+export async function GetOrganization(id:string) {
+    const organization = await prisma.organization.findUnique({
         where: {
             id
         },
@@ -12,8 +12,8 @@ export async function  GetOrganization(id:string) {
             jobs:true
         }
     });
-    if(!board) return { error: 'board not found'}
-    return { board: board }
+    if(!organization) return { error: 'board not found'}
+    return { organization: organization }
 }
 
 export async function GetUserOrganization() {

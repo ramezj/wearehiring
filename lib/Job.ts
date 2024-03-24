@@ -4,13 +4,18 @@ import prisma from "./database";
 import { getServerSession } from "next-auth"
 import { authConfig } from "./Auth"
 
-export async function CreateJob(organizationId: string, title: string, location: string, salary: number) {
+export async function CreateJob(title: string, location: string, salary: number) {
     const session = await getServerSession(authConfig);
     if(!session) return { error: 'Unauthenticated'}
+    const organizationId = await prisma.organization.findFirst({
+        where: {
+            userId: session.user?.id
+        }
+    })
     try {
         const createjob = await prisma.job.create({
             data: {
-                organizationId: organizationId,
+                organizationId: organizationId?.id as string,
                 title,
                 location,
                 salary

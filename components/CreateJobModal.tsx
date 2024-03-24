@@ -14,10 +14,14 @@ import { useState } from "react"
 import { CreateJob } from "@/lib/Job"
 import { Loader2 } from "lucide-react"
 
+interface Props {
+  organizationId: string
+}
+
 export function CreateJobModal() {
     const [ jobTitle, setJobTitle ] = useState<string>("");
     const [ location, setLocation ] = useState<string>("");
-    const [ salary, setSalary ] = useState<number>();
+    const [ salary, setSalary ] = useState<number>(0);
     const [ loading, setLoading ] = useState<boolean>(false);
     const Createjob = async (e:any) => {
         e.preventDefault();
