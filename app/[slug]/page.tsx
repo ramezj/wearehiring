@@ -43,7 +43,7 @@ export default function Page({ params }: { params: { slug: string }}) {
         </div>
         <center>
             <div className='2xl:w-3/6 lg:w-3/5 w-full h-full'>
-                <div className='lg:w-9/12 w-11/12 flex flex-col justify-between'>
+                <div className='lg:w-9/12 w-[95%] flex flex-col justify-between'>
                     {
                         loading
                         ?

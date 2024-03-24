@@ -9,7 +9,7 @@ import { MapPin, Navigation } from "lucide-react"
 export function Job(props:any) {
     return (
       <div className="w-full flex bg-white border border-black/20 rounded-lg items-center duration-300">
-      <div className="m-8 flex flex-col items-start text-left">
+      <div className="m-5 flex flex-col items-start text-left">
       <p className='sm:text-lg text-md font-bold text-left text-black dark:text-white'>
        {props.title}     
       </p>
@@ -18,7 +18,7 @@ export function Job(props:any) {
       <Badge className="rounded-sm">Remote</Badge>
       </div>
       </div>
-      <div className="m-8 ml-auto">
+      <div className="m-5 ml-auto">
       <Button asChild className="gap-1">
       <Link href={`/job/${props.id}`}>
       View
