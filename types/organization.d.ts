@@ -1,5 +1,5 @@
 type Organization = {
     id: String,
     name: String,
-    jobs?: Job[]
+    jobs?: Job [] | any
 }

@@ -20,10 +20,12 @@ export function Job(props:any) {
       </div>
       <div className="m-5 ml-auto">
       <Button asChild className="gap-1">
-      <Link href={`/job/${props.id}`}>
-      View
-      </Link>
-      {/* <ArrowUpRight className="h-4 w-4"/> */}
+        <button>
+        <Link href={`/job/${props.id}`}>
+          View
+        </Link>
+        <ArrowUpRight className="h-4 w-4"/>
+        </button>
       </Button>
       </div>
       </div>

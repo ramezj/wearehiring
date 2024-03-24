@@ -14,19 +14,19 @@ export default function Page() {
     const router = useRouter();
     const [ loading, setLoading ] = useState<boolean>(true);
     const [ jobs, setJobs ] = useState([]);
-    const [ organization, setOrganization] = useState();
+    const [ organization, setOrganization] = useState<Organization>();
     const { data: session } = useSession({required: true, onUnauthenticated() {
         router.push('/')
     }})
     useEffect(() => {
         const FetchUserData = async () => {
-            const organization = await GetUserOrganization();
+            const res = await GetUserOrganization();
             setLoading(false);
-            if(organization.error) {
-               console.error(organization.error)
+            if(res.error) {
+               console.error(res.error)
             } else {
-                setOrganization(organization.organization as any)
-                setJobs(organization.organization?.jobs as any)
+                setOrganization(res.organization)
+                setJobs(res.organization?.jobs as any)
             }
             setLoading(false);
         }
@@ -38,11 +38,10 @@ export default function Page() {
                 <div className="w-full">
                     <br />
                 <header className="flex h-[55px] items-center gap-1 bg-background px-5">
-          <h1 className="text-xl font-semibold">Dashboard</h1>
+          {/* <h1 className="text-xl font-semibold">Dashboard</h1> */}
             <CreateJobModal/>
         </header>
                 </div>
-                <br />
                 <h1 className="font-bold text-3xl">My Jobs</h1>
                 <br />
                 {
