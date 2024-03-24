@@ -34,7 +34,7 @@ export function SiteHeader(props:any) {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <Link href='/dashboard' className="cursor-pointer">
+              <Link href='/me' className="cursor-pointer">
               <DropdownMenuItem className="cursor-pointer	">
                   Dashboard
                 </DropdownMenuItem>
