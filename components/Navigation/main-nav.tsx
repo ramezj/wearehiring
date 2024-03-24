@@ -12,18 +12,18 @@ export function MainNav() {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <span className="hidden font-bold sm:inline-block">
+        <span className="hidden font-bold sm:inline-block text-black text-lg">
           wearehiring
         </span>
       </Link>
       <nav className="flex items-center gap-6 text-sm">
-        <Link href="/demo" className={cn("font-bold transition-colors hover:text-foreground/90", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+        <Link href="/demo" className={cn("font-bold text-black transition-colors hover:text-foreground/90")} >
           Demo
         </Link>
-        <Link href="/features" className={cn("font-bold transition-colors hover:text-foreground/90", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+        <Link href="/features" className={cn("font-bold text-black transition-colors hover:text-foreground/90")} >
           Features
         </Link>
-        <Link href="/pricing" className={cn("font-bold transition-colors hover:text-foreground/90", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
+        <Link href="/pricing" className={cn("font-bold text-black transition-colors hover:text-foreground/90")} >
           Pricing
         </Link>
         {/* <Link href="/demo" className={cn("transition-colors hover:text-foreground/80", pathname === "/docs" ? "text-foreground" : "text-foreground/60")} >
