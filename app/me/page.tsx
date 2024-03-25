@@ -37,8 +37,7 @@ export default function Page() {
     return (
         <Layout session={session}>
             <center>
-                <div className="w-full">
-                    <br />
+            <br />
             <header className="flex flex-col md:flex-row h-[55px] items-center gap-1 bg-background md:px-2 px-3">
             <CreateJobModal/>
             <Button asChild className="gap-1 w-full">
@@ -59,18 +58,11 @@ export default function Page() {
             </Link>
             </Button>
             </header>
-                </div>
-                <br />
-                {
-                    loading 
-                    ? 
+            <br />
+            <div className='w-full h-full md:mt-0 mt-24'>
+            <div className='lg:w-full w-[95%] flex flex-col justify-between'>
+            { loading ? <>loading</>: 
                     <>
-                    loading..
-                    </>
-                    : 
-                    <>
-                    <div className='2xl:w-3/6 lg:w-3/5 w-full h-full'>
-                    <div className='lg:w-9/12 w-[95%] flex flex-col justify-between'>
                     {
                         jobs.map((job: Job) => {
                             return (
@@ -81,10 +73,10 @@ export default function Page() {
                             )
                         })
                         }
-                    </div>
-                    </div>
                     </>
                 }
+            </div>
+            </div>
             </center>
         </Layout>
     )
