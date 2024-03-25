@@ -9,6 +9,8 @@ import { CreateJobModal } from "@/components/CreateJobModal";
 import { GetUserOrganization, CreateOrganization } from "@/lib/Organization";
 import { Button } from "@/components/ui/button";
 import { Job } from "@/components/Job";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Page() {
     const router = useRouter();
@@ -38,11 +40,15 @@ export default function Page() {
                 <div className="w-full">
                     <br />
             <header className="flex h-[55px] items-center gap-1 bg-background md:px-16 px-3">
-                <h1 className="text-2xl font-semibold">My Jobs</h1>
+            <Button asChild className="gap-1" size="sm">
+            <Link target="_blank" href={`/${organization?.id}`}>
+            View Board
+            <ArrowUpRight className="h-4 w-4"/>
+            </Link>
+            </Button>
                 <CreateJobModal/>
             </header>
                 </div>
-                {/* <h1 className="font-bold text-3xl">My Jobs</h1> */}
                 <br />
                 {
                     loading 

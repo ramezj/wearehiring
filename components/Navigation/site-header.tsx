@@ -6,7 +6,7 @@ import { MobileNav } from "./mobile-nav"
 import { Button } from "../ui/button"
 import { buttonVariants } from "../ui/button"
 import { signIn, signOut } from "next-auth/react"
-import { CircleUser } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import {  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function SiteHeader(props:any) {
@@ -27,7 +27,10 @@ export function SiteHeader(props:any) {
             <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full bg-gray-200 hover:bg-gray-200 ">
-                <CircleUser className="h-5 w-5" />
+                <Avatar>
+              <AvatarImage src={props.session.user.image}/>
+              <AvatarFallback></AvatarFallback>
+              </Avatar>
                 <span className="sr-only">Toggle user menu</span>
               </Button>
             </DropdownMenuTrigger>
