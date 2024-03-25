@@ -39,14 +39,25 @@ export default function Page() {
             <center>
                 <div className="w-full">
                     <br />
-            <header className="flex h-[55px] items-center gap-1 bg-background md:px-16 px-3">
-            <Button asChild className="gap-1" size="sm">
+            <header className="flex flex-col md:flex-row h-[55px] items-center gap-1 bg-background md:px-2 px-3">
+            <CreateJobModal/>
+            <Button asChild className="gap-1 w-full">
             <Link target="_blank" href={`/${organization?.id}`}>
             View Board
             <ArrowUpRight className="h-4 w-4"/>
             </Link>
             </Button>
-                <CreateJobModal/>
+            <Button asChild className="gap-1 w-full">
+            <Link target="_blank" href={`/${organization?.id}`}>
+            Applicants
+            </Link>
+            </Button>
+            <Button asChild className="gap-1 w-full">
+            <Link target="_blank" href={`/${organization?.id}`}>
+            Applicants
+            <ArrowUpRight className="h-4 w-4"/>
+            </Link>
+            </Button>
             </header>
                 </div>
                 <br />

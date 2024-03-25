@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { slug: string }}) {
         <Layout session={session}>
         <div className="text-center w-full">
             <br /><br />
-            <h1 className="text-4xl font-bold">We are hiring.</h1>
+            <h1 className="text-4xl font-bold">We are hiring</h1>
             { loading === true &&
             <>
             Loading jobs...
@@ -57,7 +57,7 @@ export default function Page({ params }: { params: { slug: string }}) {
                         jobs.map((job: Job) => {
                             return (
                                 <>
-                                <Job title={job.title} id={job.id} location={job.location}/> 
+                                <Job title={job.title} id={job.id} location={job.location} type={job.type}/> 
                                 <br />
                                 </>
                             )

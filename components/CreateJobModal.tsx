@@ -33,7 +33,7 @@ export function CreateJobModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default" className="ml-auto gap-1.5 text-sm" size="sm">Create a Job</Button>
+        <Button variant="default" className="w-full">Create a Job</Button>
       </DialogTrigger>
       <DialogContent className="sm:w-[425px] w-11/12 rounded-md">
         <DialogHeader>
