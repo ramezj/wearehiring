@@ -56,7 +56,7 @@ export default function Page({ params }: { params: { slug: string }}) {
                         jobs.map((job: Job) => {
                             return (
                                 <>
-                                <Job title={job.title} id={job.id} location={job.location} type={job.type}/> 
+                                <Job title={job.title} id={job.id} location={job.location} type={job.type} buttonText={"Apply"}/> 
                                 <br />
                                 </>
                             )

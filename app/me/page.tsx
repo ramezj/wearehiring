@@ -71,7 +71,7 @@ export default function Page() {
                         jobs.map((job: Job) => {
                             return (
                                 <>
-                                <Job title={job.title} id={job.id} location={job.location} type={job.type}/> 
+                                <Job title={job.title} id={job.id} location={job.location} type={job.type} buttonText={"Edit"}/> 
                                 <br />
                                 </>
                             )

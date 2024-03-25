@@ -10,7 +10,8 @@ interface Props {
   id?: String,
   title?: String,
   location?: String,
-  type?: String
+  type?: String,
+  buttonText: String
 }
 
 export function Job(props:Props) {
@@ -28,7 +29,7 @@ export function Job(props:Props) {
       <div className="m-5 ml-auto">
       <Button asChild className="gap-1 bg-black" size="sm">
         <Link target="_blank" href={`/job/${props.id}`}>
-          View
+          {props.buttonText}
           <ArrowUpRight className="h-4 w-4"/>
         </Link>
       </Button>
