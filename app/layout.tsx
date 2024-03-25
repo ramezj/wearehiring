@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
+import { GeistSans } from "geist/font"
 import "./globals.css";
 import { SessionProvider } from "../lib/SessionProvider"
 import { NavigationBar } from "@/components/NavigationBar";
@@ -24,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <SessionProvider>
-          <body className={bricolageGrotesque.className}>
+          <body className={inter.className}>
             {children}
           </body>
       </SessionProvider>
