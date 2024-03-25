@@ -3,7 +3,7 @@ type Job = {
     title: String,
     location?: String,
     salary?: Number,
-    workplace? : String,
+    type? : String,
     userId: String,
     applications?: String[]
 }

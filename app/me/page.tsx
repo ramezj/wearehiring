@@ -58,7 +58,7 @@ export default function Page() {
                         jobs.map((job: Job) => {
                             return (
                                 <>
-                                <Job title={job.title} id={job.id} location={job.location}/> 
+                                <Job title={job.title as string} id={job.id as string} location={job.location as string} type={job.type as string}/> 
                                 <br />
                                 </>
                             )

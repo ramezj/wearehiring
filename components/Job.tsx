@@ -4,9 +4,16 @@ import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
 import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
-import { MapPin, Navigation } from "lucide-react"
+import { MapPin, Navigation, Briefcase } from "lucide-react"
 
-export function Job(props:any) {
+interface Props {
+  id: string,
+  title: string,
+  location: string,
+  type: string
+}
+
+export function Job(props:Props) {
     return (
       <div className="w-full flex bg-white border border-black/20 rounded-lg items-center duration-300">
       <div className="m-5 flex flex-col items-start text-left">
@@ -14,8 +21,8 @@ export function Job(props:any) {
        {props.title}     
       </p>
       <div className="mt-3 -mb-2 flex gap-1">
+      <Badge className="rounded-sm"><Briefcase className="w-3 h-3 mr-1" />{props.type}</Badge>
       <Badge className="rounded-sm"><Navigation className="w-3 h-3 mr-1" />{props.location}</Badge>
-      <Badge className="rounded-sm">Remote</Badge>
       </div>
       </div>
       <div className="m-5 ml-auto">

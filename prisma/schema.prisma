@@ -56,7 +56,7 @@ model Job {
   title String
   location String?
   salary Int?
-  workplace String?
+  type String @default("Full-Time")
   organizationId String
   organization Organization @relation(fields: [organizationId], references: [id])
   applications Application[]
