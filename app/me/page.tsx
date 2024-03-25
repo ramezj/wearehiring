@@ -13,6 +13,7 @@ import Link from "next/link";
 import { ArrowUpRight, Zap } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users } from "lucide-react";
+import CreateJModal from "@/components/CreateJModal";
 
 export default function Page() {
     const router = useRouter();
@@ -43,7 +44,7 @@ export default function Page() {
             <h1 className="font-bold text-3xl text-center lg:text-left">Dashboard</h1>
             <br />
             <header className="flex flex-col md:flex-row h-[55px] items-center gap-3 bg-background md:px-0 px-3">
-            <CreateJobModal/>
+            <CreateJobModal />
             <Button asChild className="gap-1 w-full bg-black">
             <Link target="_blank" href={`/${organization?.id}`}>
             View Board
