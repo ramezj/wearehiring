@@ -7,7 +7,8 @@ import { Button } from "../ui/button"
 import { buttonVariants } from "../ui/button"
 import { signIn, signOut } from "next-auth/react"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
-import {  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Separator } from "../ui/separator"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function SiteHeader(props:any) {
   return (
@@ -35,8 +36,8 @@ export function SiteHeader(props:any) {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+              <DropdownMenuLabel>{props.session.user.name}</DropdownMenuLabel>
+              <Separator />
               <Link href='/me' className="cursor-pointer">
               <DropdownMenuItem className="cursor-pointer	">
                   Dashboard
@@ -47,7 +48,7 @@ export function SiteHeader(props:any) {
                   Settings
                 </DropdownMenuItem>
               </Link>
-              <DropdownMenuSeparator />
+              <Separator />
               <button className="w-full cursor-pointer" onClick={(() => {signOut()})}>
               <DropdownMenuItem className="cursor-pointer">
                 Logout
@@ -55,11 +56,6 @@ export function SiteHeader(props:any) {
               </button>
             </DropdownMenuContent>
           </DropdownMenu>
-                {/* <Button asChild>
-                  <Link href='/dashboard'>
-                  Dashboard
-                  </Link>
-                  </Button> */}
               </>
               : 
               <>

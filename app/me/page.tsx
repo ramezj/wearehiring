@@ -10,7 +10,7 @@ import { GetUserOrganization, CreateOrganization } from "@/lib/Organization";
 import { Button } from "@/components/ui/button";
 import { Job } from "@/components/Job";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Zap } from "lucide-react";
 
 export default function Page() {
     const router = useRouter();
@@ -48,14 +48,13 @@ export default function Page() {
             </Button>
             <Button asChild className="gap-1 w-full">
             <Link target="_blank" href={`/${organization?.id}`}>
-            Applicants
-            </Link>
-            </Button>
-            <Button asChild className="gap-1 w-full">
-            <Link target="_blank" href={`/${organization?.id}`}>
-            View Board
+            View Applicants
             <ArrowUpRight className="h-4 w-4"/>
             </Link>
+            </Button>
+            <Button className="gap-1 w-full">
+            <Zap className="h-4 w-4" />
+            Upgrade To Pro
             </Button>
             </header>
             <br />

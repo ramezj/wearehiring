@@ -21,8 +21,8 @@ export function Job(props:Props) {
        {props.title}     
       </p>
       <div className="mt-3 -mb-2 flex gap-1">
-      <Badge className="rounded-sm"><Briefcase className="w-3 h-3 mr-1" />{props.type}</Badge>
-      <Badge className="rounded-sm"><Navigation className="w-3 h-3 mr-1" />{props.location}</Badge>
+      <Badge className="rounded-sm cursor-default"><Briefcase className="w-3 h-3 mr-1" />{props.type}</Badge>
+      <Badge className="rounded-sm cursor-default"><Navigation className="w-3 h-3 mr-1" />{props.location}</Badge>
       </div>
       </div>
       <div className="m-5 ml-auto">
