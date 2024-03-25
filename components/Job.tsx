@@ -7,10 +7,10 @@ import Link from "next/link"
 import { MapPin, Navigation, Briefcase } from "lucide-react"
 
 interface Props {
-  id?: string,
-  title?: string,
-  location?: string,
-  type?: string
+  id?: String,
+  title?: String,
+  location?: String,
+  type?: String
 }
 
 export function Job(props:Props) {
