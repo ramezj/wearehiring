@@ -37,7 +37,7 @@ export default function Page() {
             <center>
                 <div className="w-full">
                     <br />
-            <header className="flex h-[55px] items-center gap-1 bg-background md:px-16 px-5">
+            <header className="flex h-[55px] items-center gap-1 bg-background md:px-16 px-3">
                 <h1 className="text-2xl font-semibold">My Jobs</h1>
                 <CreateJobModal/>
             </header>

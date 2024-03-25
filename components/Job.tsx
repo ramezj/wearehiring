@@ -19,7 +19,7 @@ export function Job(props:any) {
       </div>
       </div>
       <div className="m-5 ml-auto">
-      <Button asChild className="gap-1">
+      <Button asChild className="gap-1" size="sm">
         <Link target="_blank" href={`/job/${props.id}`}>
           View
           <ArrowUpRight className="h-4 w-4"/>
