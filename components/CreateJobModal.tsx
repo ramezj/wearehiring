@@ -33,7 +33,7 @@ export function CreateJobModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default" className="w-full">Create a Job</Button>
+        <Button variant="default" className="w-full bg-black">Create a Job</Button>
       </DialogTrigger>
       <DialogContent className="sm:w-[425px] w-11/12 rounded-md">
         <DialogHeader>
@@ -93,14 +93,14 @@ export function CreateJobModal() {
                 loading
                 ?
                 <>
-                <Button disabled className="w-full">
+                <Button disabled className="w-full ">
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                    Save Changes
                  </Button>
                 </>
                 :
                 <>
-                <Button form="form" type="submit" className="w-full">Save changes</Button>
+                <Button form="form" type="submit" className="w-full bg-black">Save changes</Button>
                 </>
             }
         </DialogFooter>

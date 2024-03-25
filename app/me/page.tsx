@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Job } from "@/components/Job";
 import Link from "next/link";
 import { ArrowUpRight, Zap } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Users } from "lucide-react";
 
 export default function Page() {
     const router = useRouter();
@@ -37,22 +39,24 @@ export default function Page() {
     return (
         <Layout session={session}>
             <center>
+            <br/>
+            <h1 className="font-bold text-3xl text-center lg:text-left">Dashboard</h1>
             <br />
             <header className="flex flex-col md:flex-row h-[55px] items-center gap-3 bg-background md:px-0 px-3">
             <CreateJobModal/>
-            <Button asChild className="gap-1 w-full">
+            <Button asChild className="gap-1 w-full bg-black">
             <Link target="_blank" href={`/${organization?.id}`}>
             View Board
             <ArrowUpRight className="h-4 w-4"/>
             </Link>
             </Button>
-            <Button asChild className="gap-1 w-full">
+            <Button asChild className="gap-1 w-full bg-black">
             <Link target="_blank" href={`/${organization?.id}`}>
             View Applicants
             <ArrowUpRight className="h-4 w-4"/>
             </Link>
             </Button>
-            <Button className="gap-1 w-full">
+            <Button className="gap-1 w-full bg-black">
             <Zap className="h-4 w-4" />
             Upgrade To Pro
             </Button>

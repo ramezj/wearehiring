@@ -21,12 +21,12 @@ export function Job(props:Props) {
        {props.title}     
       </p>
       <div className="mt-3 -mb-2 flex gap-1">
-      <Badge className="rounded-sm cursor-default"><Briefcase className="w-3 h-3 mr-1" />{props.type}</Badge>
-      <Badge className="rounded-sm cursor-default"><Navigation className="w-3 h-3 mr-1" />{props.location}</Badge>
+      <Badge className="rounded-sm cursor-default bg-black"><Briefcase className="w-3 h-3 mr-1" />{props.type}</Badge>
+      <Badge className="rounded-sm cursor-default bg-black"><Navigation className="w-3 h-3 mr-1" />{props.location}</Badge>
       </div>
       </div>
       <div className="m-5 ml-auto">
-      <Button asChild className="gap-1" size="sm">
+      <Button asChild className="gap-1 bg-black" size="sm">
         <Link target="_blank" href={`/job/${props.id}`}>
           View
           <ArrowUpRight className="h-4 w-4"/>
