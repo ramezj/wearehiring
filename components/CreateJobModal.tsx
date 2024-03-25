@@ -55,7 +55,7 @@ export function CreateJobModal() {
               placeholder="Software Engineer"
               value={jobTitle}
               onChange={((e) => {setJobTitle(e.target.value)})}
-              className="w-full"
+              className="w-full border border-black/20"
             />
             </div>
             <div className="mt-2">
@@ -68,7 +68,7 @@ export function CreateJobModal() {
               placeholder="San Francisco"
               value={location}
               onChange={((e) => {setLocation(e.target.value)})}
-              className="w-full"
+              className="w-full border border-black/20"
             />
             </div>
             <div className="mt-2">
@@ -82,7 +82,7 @@ export function CreateJobModal() {
               placeholder="$250,000"
               value={salary}
               onChange={((e) => {setSalary(Number(e.target.value))})}
-              className="w-full"
+              className="w-full border border-black/20"
             />
             </div>
             </form>
