@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { GetJobs } from "@/lib/Job"
 import { useRouter } from "next/navigation"
 
-
 export default function Page({ params }: { params: { slug: string }}) {
     const router = useRouter();
     const { data: session } = useSession();
@@ -44,8 +43,8 @@ export default function Page({ params }: { params: { slug: string }}) {
             <br />
         </div>
         <center>
-            <div className='2xl:w-3/6 lg:w-3/5 w-full h-full'>
-                <div className='lg:w-9/12 w-[95%] flex flex-col justify-between'>
+            <div className='2xl:w-4/5 lg:w-3/5 w-full h-full'>
+            <div className='lg:w-9/12 w-[95%] flex flex-col justify-between'>
                     {
                         loading
                         ?

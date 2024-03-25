@@ -38,7 +38,7 @@ export default function Page() {
         <Layout session={session}>
             <center>
             <br />
-            <header className="flex flex-col md:flex-row h-[55px] items-center gap-1 bg-background md:px-2 px-3">
+            <header className="flex flex-col md:flex-row h-[55px] items-center gap-3 bg-background md:px-0 px-3">
             <CreateJobModal/>
             <Button asChild className="gap-1 w-full">
             <Link target="_blank" href={`/${organization?.id}`}>
@@ -53,13 +53,13 @@ export default function Page() {
             </Button>
             <Button asChild className="gap-1 w-full">
             <Link target="_blank" href={`/${organization?.id}`}>
-            Applicants
+            View Board
             <ArrowUpRight className="h-4 w-4"/>
             </Link>
             </Button>
             </header>
             <br />
-            <div className='w-full h-full md:mt-0 mt-24'>
+            <div className='w-full h-full md:mt-0 mt-[7.25rem]'>
             <div className='lg:w-full w-[95%] flex flex-col justify-between'>
             { loading ? <>loading</>: 
                     <>

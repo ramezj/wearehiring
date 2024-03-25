@@ -12,7 +12,7 @@ import {  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel
 export function SiteHeader(props:any) {
   return (
     <header className="sticky top-2 z-50 w-full items-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center p-3 w-full max-w-5xl">
+      <div className="container flex h-14 p-3 md:p-0 items-center w-full max-w-5xl">
         <MainNav />
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
