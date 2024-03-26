@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss"
 
 const config = {
   darkMode: ["class"],
+  plugins: [require("tailwindcss-animate")],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
