@@ -20,7 +20,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Simplifying the hiring process.</h1>
         <br />
         <div className="w-full flex items-center justify-center">
-          <div className="md:w-3/5 w-full">
+          <div className="lg:w-[65%] w-[95%]">
             <Job title={"Back-End Engineer"} buttonText={"Apply"} type={"Full-Time"} location={"Los Angeles"}/>
             <br />
             <Job title={"Product Manager"} buttonText={"Apply"} type={"Full-Time"} location={"New York"}/>
