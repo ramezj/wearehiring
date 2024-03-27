@@ -17,7 +17,7 @@ export default function Home() {
       <br /><br />
       <Badge className="px-5 py-1 2xl:px-12 2xl:py-2 text-sm gap-2"><Zap className='w-4 h-4' />wearehiring is currently in pre-alpha</Badge>
       <br /><br />
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Simplifying the hiring process.</h1>
+        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">A Job Board for everyone.</h1>
         <br />
         <div className="w-full flex items-center justify-center">
           <div className="lg:w-[65%] w-[95%]">
